@@ -1,24 +1,51 @@
-# README
+# アプリ名： ProgramCreator
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 概要
+このアプリケーションは、オーケストラの演奏会プログラムを効率的に作成する補助ツールです。メインとなる曲の決定後に残りの曲を選ぶ作業があります。この時、団員数や団員一人当たりの参加曲数によって曲の絞り込みが必要です。この絞り込みの作業を補助し、曲の組み合わせを提案します。
 
-Things you may want to cover:
+## URL
 
-* Ruby version
+###########################
 
-* System dependencies
+## 利用方法
+#############################
 
-* Configuration
+## データベース設計
 
-* Database creation
+### 1. `pieces`（曲）
 
-* Database initialization
+| Column             | Type       | Explain         | Options      |
+|----------------|-----------|----------------|----------------|
+| `piece_name`   | test      | 曲名           |null: false          |
+| `composer_id`  | integer   | 作曲者         |null: false          |
+| `duration`     | integer   | 演奏時間（分）  |null: false          |
+| `genre_id`     | integer   | ジャンル        |null: false          |
+| `year_composed`| integer   | 作曲年          |null: false          |
 
-* How to run the test suite
+#### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- has_many :pieces_instruments
 
-* Deployment instructions
 
-* ...
+#### 2. `instruments`（楽器）
+
+| Column             | Type       | Explain         | Options      |
+|--------------|-----------|----------------|----------------|
+| `instrument_name`       | text      | 楽器名       |null: false   |
+#### Association
+
+- has_many :pieces_instruments
+
+
+#### 3. `piece_instruments`（中間テーブル）
+
+| Column             | Type       | Explain                                | Options      |
+|-----------------|-----------|------------------------------------------|----------------|
+| `piece_id`      | integer   | 曲のID（外部キー、`pieces.id`を参照）        |null: false          |
+| `instrument_id` | integer   | 楽器のID（外部キー、`instruments.id`を参照） |null: false          |
+| `quantity`      | integer   | 人数                                       |null: false          |
+
+#### Association
+
+- belongs_to :piece
+- belongs_to :instrument
