@@ -76,3 +76,4 @@ group :production do
 end
 
 gem 'ransack'
+gem 'pry-rails'
