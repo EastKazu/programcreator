@@ -77,3 +77,4 @@ end
 
 gem 'ransack'
 gem 'pry-rails'
+gem 'active_hash'
