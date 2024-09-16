@@ -411,6 +411,38 @@
              <div class= 'search-button-text'>検索</div>
             </div>
           </div>
+          <h1>曲の検索</h1>
+
+<%= search_form_for @q, url: search_path, method: :get do |f| %>
+  <!-- 曲名で検索 -->
+  <%= f.label :title_cont, "曲名" %>
+  <%= f.text_field :title_cont %>
+
+  <!-- 作曲家名で検索 -->
+  <%= f.label :composer_name_cont, "作曲家名" %>
+  <%= f.text_field :composer_name_cont %>
+
+  <!-- 作曲年で検索 -->
+  <%= f.label :year_gteq, "作曲年（以上）" %>
+  <%= f.number_field :year_gteq %>
+
+  <%= f.label :year_lteq, "作曲年（以下）" %>
+  <%= f.number_field :year_lteq %>
+
+  <%= f.submit "検索" %>
+<% end %>
+
+<!-- 検索結果の表示 -->
+<h2>検索結果</h2>
+<% if @songs.present? %>
+  <ul>
+    <% @songs.each do |song| %>
+      <li><%= song.title %> by <%= song.composer.name %> (作曲年: <%= song.year %>)</li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>該当する曲が見つかりませんでした。</p>
+<% end %>
       </div>
     </div>
   </div>

@@ -1,0 +1,145 @@
+.header{
+  background-color: #502e2b;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.header-title{
+  color: #E9E3DD;
+  font-size: 36px;
+}
+
+.main{
+  background-color: #ac5d49;
+  height: 100vx;
+  padding-bottom: 50px;
+}
+
+.main-piece{
+  display: flex;
+  justify-content: center;
+  
+}
+
+.main-piece-title{
+  font-size: 32px;
+  color: #E9E3DD;
+  margin-top: 80px;
+  text-align: center;
+}
+
+.main-piece-form{
+  width: 800px;
+  height: 150px;
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+  background-color: #E9E3DD;
+  padding: 10px;
+}
+
+.main-piece-conditions{
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+li{
+  list-style: none;
+  color: #3C0F0A;
+}
+
+.main-piece-pulldown{
+  height: 25px;
+  font-size: 15px;
+}
+
+.main-piece-name{
+  font-size: 24px;
+  color: #3C0F0A;
+  margin-top: 20px;
+  margin-left: 40px;
+}
+
+.main-form-title{
+  font-size: 32px;
+  color: #E9E3DD;
+  padding-top: 80px;
+  text-align: center;
+}
+
+.search{
+  display: flex;
+  justify-content: center;
+}
+
+.search-piece-form{
+  width: 800px;
+  background-color: #E9E3DD;
+  box-shadow: 0 10px 25px 0 rgba(27, 8, 8, 0.5);
+  padding: 8px;
+}
+
+.form-contents{
+  
+}
+
+.form-content{
+  padding-bottom: 5px;
+}
+
+.quantity-form, .min-times-form, .max-times-form{
+  width: 80px
+}
+
+.search-piece-title{
+  font-size: 32px;
+  color: #E9E3DD;
+  padding-left: 15px;
+}
+
+.search-piece-conditions{
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: space-between;
+  border: #3C0F0A;
+}
+
+.search-piece-condition{
+  width: 50%;
+  padding-top: 8px;
+  height: 30px;
+}
+
+.search-button{
+  display: flex;
+  justify-content: center;
+}
+
+.search-button-content{
+  background-color: #502e2b;
+  height: 40px;
+  width: 200px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #E9E3DD;
+  font-size: 24px;
+}
+
+.footer{
+  background-color: #502e2b;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 20px;
+}
+
+.footer-title{
+  color: #E9E3DD;
+  font-size: 12px;
+}
+
+

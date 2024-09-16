@@ -1,0 +1,64 @@
+<div class='header'>
+  <div class='header-title'>ProgramCreator</div>
+</div>
+<div class='main'>
+  <h2 class='result-title'>検索結果</h2>
+  
+  <% if @pieces.present? %>
+  <div class='result-box'>
+    <table>
+      <thead>
+        <tr>
+          <th>曲1</th>
+          <th>曲2</th>
+          <th>picc</th>
+          <th>fl</th>
+          <th>cl</th>
+          <th>ob</th>
+          <th>eh</th>
+          <th>Bcl</th>
+          <th>fg</th>
+          <th>Cfg</th>
+          <th>hr</th>
+          <th>tp</th>
+          <th>cnt</th>
+          <th>tb</th>
+          <th>tuba</th>
+          <th>perc</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @pieces.each do |piece| %>
+          <tr>
+            <td><%= Piece.find(piece.piece1_id).piece_name %></td>
+            <td><%= Piece.find(piece.piece2_id).piece_name %></td>
+            <td><%= piece.total_picc_quantity %></td>
+            <td><%= piece.total_fl_quantity %></td>
+            <td><%= piece.total_cl_quantity %></td>
+            <td><%= piece.total_ob_quantity %></td>
+            <td><%= piece.total_eh_quantity %></td>
+            <td><%= piece.total_bcl_quantity %></td>
+            <td><%= piece.total_fg_quantity %></td>
+            <td><%= piece.total_cfg_quantity %></td>
+            <td><%= piece.total_hr_quantity %></td>
+            <td><%= piece.total_tp_quantity %></td>
+            <td><%= piece.total_cnt_quantity %></td>
+            <td><%= piece.total_tb_quantity %></td>
+            <td><%= piece.total_tuba_quantity %></td>
+            <td><%= piece.total_perc_quantity %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <p>該当する曲が見つかりませんでした。</p>
+<% end %>
+
+
+
+</div>
+
+<div class= 'footer'>
+  <div class= 'footer-title'><h1>©ProgramCreator</h1></div>
+</div>

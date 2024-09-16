@@ -1,0 +1,37 @@
+<%# <%= render "shared/header" %>
+<div class= 'header'>
+  <div class= 'header-title'><h1>ProgramCreator</h1></div>
+</div>
+<div class= 'main'>
+<h1 class= 'piece-index-title'>登録曲一覧</h1>
+<br>
+<div class= 'pieces'>
+<% @pieces.each do |piece| %>
+  <div class= 'piece'>
+    <h2><%= piece.piece_name %> by <%= piece.composer.name %></h2>
+    <p>作曲年: <%= piece.year_composed %></p>
+    <p>ジャンル: <%= piece.genre.name %></p>
+    <p>演奏時間: <%= piece.duration %> 分</p>
+
+    <h3>楽器編成:</h3>
+<table>
+  <tr>
+    <% piece.piece_instruments.each do |pi| %>
+      <th><%= pi.instrument.instrument_name %></th>
+    <% end %>
+  </tr>
+  <tr>
+    <% piece.piece_instruments.each do |pi| %>
+      <td><%= pi.quantity %> </td>
+    <% end %>
+  </tr>
+</table>
+  </div>
+  <br>
+<% end %>
+</div>
+</div>
+<div class= 'footer'>
+  <div class= 'footer-title'><h1>ProgramCreator</h1></div>
+</div>
+<%# <%= render "shared/footer" %>
