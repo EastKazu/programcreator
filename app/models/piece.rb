@@ -11,5 +11,6 @@ class Piece < ApplicationRecord
     validates :composer_id
     validates :genre_id
     validates :year_composed
+    validates :country_id
   end
 end
