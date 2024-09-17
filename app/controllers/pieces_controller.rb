@@ -37,14 +37,14 @@ class PiecesController < ApplicationController
     ob_id = 4
     eh_id = 5
     bcl_id = 6
-    fg_id = 8
-    cfg_id = 9
-    hr_id = 10
-    tp_id = 11
-    cnt_id = 12
-    tb_id = 13
-    tuba_id = 14
-    perc_id = 15
+    fg_id = 7
+    cfg_id = 8
+    hr_id = 9
+    tp_id = 10
+    cnt_id = 11
+    tb_id = 12
+    tuba_id = 13
+    perc_id = 14
 
 
     # ここで `@pieces` を基本的なクエリで初期化
