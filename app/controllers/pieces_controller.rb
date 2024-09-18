@@ -2,9 +2,10 @@ class PiecesController < ApplicationController
 
   def search
     composer_ids = params[:composer_ids] 
+    genre_ids = params[:genre_ids]
     
     if composer_ids.present?
-      @q = Piece.ransack(composer_id_in: composer_ids)
+      @q = Piece.ransack(composer_id_in: composer_ids, genre_id_in: genre_ids)
       @pieces = @q.result
     else
       @pieces = Piece.all

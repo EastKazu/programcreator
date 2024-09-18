@@ -60,6 +60,13 @@
               <%= composer.name %>
             </div>
             <% end %>
+            <label>ジャンル</label>
+            <% Genre.all.each do |genre| %>
+            <div>
+              <%= f.check_box :genre_ids, { multiple: true }, genre.id, nil %>
+              <%= genre.name %>
+            </div>
+            <% end %>
           <label for="horn_quantity" class="quantity-label">picc人数</label>
           <%= f.number_field :picc_quantity, placeholder: "人数", class: 'quantity-form' %>
           
