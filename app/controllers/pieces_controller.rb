@@ -2,13 +2,23 @@ class PiecesController < ApplicationController
 
   def search
     composer_ids = params[:composer_ids] 
+    genre_ids = params[:genre_ids]
+    country_ids = params[:country_ids]
+    year_composed_from = params[:year_composed_from]
+    year_composed_to = params[:year_composed_to]
+
+    search_conditions = {}
+    search_conditions[:composer_id_in] = composer_ids if composer_ids.present?
+    search_conditions[:genre_id_in] = genre_ids if genre_ids.present?
+    search_conditions[:country_id_in] = country_ids if country_ids.present?
+    search_conditions[:year_composed_gteq] = year_composed_from if year_composed_from.present?
+    search_conditions[:year_composed_lteq] = year_composed_to if year_composed_to.present?
+
     
-    if composer_ids.present?
-      @q = Piece.ransack(composer_id_in: composer_ids)
+
+      @q = Piece.ransack(search_conditions)
       @pieces = @q.result
-    else
-      @pieces = Piece.all
-    end
+
 
     instruments = {
       picc: { quantity: 0, max_times: 0, min_times: 0 },

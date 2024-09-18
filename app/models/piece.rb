@@ -20,6 +20,6 @@ class Piece < ApplicationRecord
 
   # Ransackで検索可能な関連付けを定義
   def self.ransackable_associations(auth_object = nil)
-    ["composer", "genre", "instruments", "piece_instruments"]
+    ["composer", "genre", "country", "instruments", "piece_instruments"]
   end
 end
