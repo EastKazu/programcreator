@@ -21,6 +21,9 @@
 | `duration`     | integer   | 演奏時間（分）  |null: false          |
 | `genre_id`     | integer   | ジャンル        |null: false          |
 | `year_composed`| integer   | 作曲年          |null: false          |
+| `country_id`   | integer   | 国             |null: false          |
+| `remarks`      | text      | 備考           |null: false             |
+
 
 #### Association
 
