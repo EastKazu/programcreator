@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_09_10_024454) do
+ActiveRecord::Schema[7.0].define(version: 2024_09_17_030039) do
+  create_table "composers", charset: "utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "countries", charset: "utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "genres", charset: "utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "instruments", charset: "utf8", force: :cascade do |t|
     t.text "instrument_name", null: false
     t.datetime "created_at", null: false
@@ -31,6 +46,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_10_024454) do
     t.integer "duration", null: false
     t.integer "genre_id", null: false
     t.integer "year_composed", null: false
+    t.integer "country_id", null: false
+    t.text "remarks"
     t.integer "timestamps", null: false
   end
 

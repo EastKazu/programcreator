@@ -1,0 +1,226 @@
+<div class='header'>
+  <div class='header-title'>ProgramCreator</div>
+</div>
+
+<div class='main'>
+   <div class= 'main-piece'>
+    <div class= 'main-piece-box'>
+      <div class= 'main-piece-title'>メイン曲</div>
+      <div class= 'main-piece-form'>
+        <ul class= 'main-piece-conditions'>
+          <li class= 'main-piece-condition'>作曲家</li>
+            <select class="main-piece-pulldown">
+              <option>---</option>
+              <option>ベートーヴェン</option>
+              <option>ブラームス</option>
+              <option>ドボルザーク</option>
+            </select>
+          <li class= 'main-piece-condition'>年代</li>
+            <select class="main-piece-pulldown">
+              <option>---</option>
+              <option>古典</option>
+              <option>ロマン派</option>
+              <option>印象派</option>
+            </select>
+          <li class= 'main-piece-condition'>ジャンル</li>
+            <select class="main-piece-pulldown">
+              <option>---</option>
+              <option>交響曲</option>
+              <option>交響詩</option>
+              <option>組曲</option>
+            </select>
+            <li class= 'main-piece-condition'>国</li>
+            <select class="main-piece-pulldown">
+              <option>---</option>
+              <option>ドイツ</option>
+              <option>オーストリア</option>
+              <option>フランス</option>
+            </select>
+        </ul>
+        <div class= 'main-piece-name'><div>曲名</div>
+        <select class= 'main-piece-pulldown'>
+          <option>---</option>
+          <option>ベートーヴェン 交響曲1番</option>
+          <option>ベートーヴェン 交響曲2番</option>
+          <option>ベートーヴェン 交響曲3番</option>
+        </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h1 class='main-form-title'>楽器の合計人数と回数で曲を検索</h1>
+  <div class='search'>
+    <%= form_with url: search_pieces_path, method: :get, local: true do |f| %>
+      <div class='search-piece-form'>
+        <div class='form-content'>
+            <label>作曲家</label>
+            <% Composer.all.each do |composer| %>
+            <div>
+              <%= f.check_box :composer_ids, { multiple: true }, composer.id, nil %>
+              <%= composer.name %>
+            </div>
+            <% end %>
+          <label for="horn_quantity" class="quantity-label">picc人数</label>
+          <%= f.number_field :picc_quantity, placeholder: "人数", class: 'quantity-form' %>
+          
+          <label for="horn_min_times" class="min-label">最低回数</label>
+          <%= f.number_field :picc_min_times, placeholder: "最低回数", class: 'min-times-form' %>
+          
+          <label for="horn_max_times" class="max-label">最高回数</label>
+          <%= f.number_field :picc_max_times, placeholder: "最高回数", class: 'max-times-form' %>
+        </div>
+
+        <div class='form-content'>
+          <label for="flute_quantity" class="quantity-label">fl人数</label>
+          <%= f.number_field :fl_quantity, placeholder: "人数", class: 'quantity-form' %>
+          
+          <label for="flute_min_times" class="min-label">最低回数</label>
+          <%= f.number_field :fl_min_times, placeholder: "最低回数", class: 'min-times-form' %>
+          
+          <label for="flute_max_times" class="max-label">最高回数</label>
+          <%= f.number_field :fl_max_times, placeholder: "最高回数", class: 'max-times-form' %>
+        </div>
+
+        <div class='form-content'>
+          <label for="cl_quantity" class="quantity-label">cl人数</label>
+          <%= f.number_field :cl_quantity, placeholder: "人数", class: 'quantity-form' %>
+          
+          <label for="cl_min_times" class="min-label">最低回数</label>
+          <%= f.number_field :cl_min_times, placeholder: "最低回数", class: 'min-times-form' %>
+          
+          <label for="cl_max_times" class="max-label">最高回数</label>
+          <%= f.number_field :cl_max_times, placeholder: "最高回数", class: 'max-times-form' %>
+        </div>
+
+        <div class='form-content'>
+          <label for="ob_quantity" class="quantity-label">ob人数</label>
+          <%= f.number_field :ob_quantity, placeholder: "人数", class: 'quantity-form' %>
+          
+          <label for="ob_min_times" class="min-label">最低回数</label>
+          <%= f.number_field :ob_min_times, placeholder: "最低回数", class: 'min-times-form' %>
+          
+          <label for="ob_max_times" class="max-label">最高回数</label>
+          <%= f.number_field :ob_max_times, placeholder: "最高回数", class: 'max-times-form' %>
+        </div>
+
+        <div class='form-content'>
+          <label for="eh_quantity" class="quantity-label">Eh人数</label>
+          <%= f.number_field :eh_quantity, placeholder: "人数", class: 'quantity-form' %>
+          
+          <label for="eh_min_times" class="min-label">最低回数</label>
+          <%= f.number_field :eh_min_times, placeholder: "最低回数", class: 'min-times-form' %>
+          
+          <label for="eh_max_times" class="max-label">最高回数</label>
+          <%= f.number_field :eh_max_times, placeholder: "最高回数", class: 'max-times-form' %>
+        </div>
+
+        <div class='form-content'>
+          <label for="bcl_quantity" class="quantity-label">bcl人数</label>
+          <%= f.number_field :bcl_quantity, placeholder: "人数", class: 'quantity-form' %>
+          
+          <label for="bcl_min_times" class="min-label">最低回数</label>
+          <%= f.number_field :bcl_min_times, placeholder: "最低回数", class: 'min-times-form' %>
+          
+          <label for="bcl_max_times" class="max-label">最高回数</label>
+          <%= f.number_field :bcl_max_times, placeholder: "最高回数", class: 'max-times-form' %>
+        </div>
+
+        <div class='form-content'>
+          <label for="fg_quantity" class="quantity-label">fg人数</label>
+          <%= f.number_field :fg_quantity, placeholder: "人数", class: 'quantity-form' %>
+          
+          <label for="fg_min_times" class="min-label">最低回数</label>
+          <%= f.number_field :fg_min_times, placeholder: "最低回数", class: 'min-times-form' %>
+          
+          <label for="fg_max_times" class="max-label">最高回数</label>
+          <%= f.number_field :fg_max_times, placeholder: "最高回数", class: 'max-times-form' %>
+        </div>
+
+        <div class='form-content'>
+          <label for="cfg_quantity" class="quantity-label">Cfg人数</label>
+          <%= f.number_field :cfg_quantity, placeholder: "人数", class: 'quantity-form' %>
+          
+          <label for="cfg_min_times" class="min-label">最低回数</label>
+          <%= f.number_field :cfg_min_times, placeholder: "最低回数", class: 'min-times-form' %>
+          
+          <label for="cfg_max_times" class="max-label">最高回数</label>
+          <%= f.number_field :cfg_max_times, placeholder: "最高回数", class: 'max-times-form' %>
+        </div>
+
+        <div class='form-content'>
+          <label for="horn_quantity" class="quantity-label">hr人数</label>
+          <%= f.number_field :hr_quantity, placeholder: "人数", class: 'quantity-form' %>
+          
+          <label for="horn_min_times" class="min-label">最低回数</label>
+          <%= f.number_field :hr_min_times, placeholder: "最低回数", class: 'min-times-form' %>
+          
+          <label for="horn_max_times" class="max-label">最高回数</label>
+          <%= f.number_field :hr_max_times, placeholder: "最高回数", class: 'max-times-form' %>
+        </div>
+
+        <div class='form-content'>
+          <label for="tp_quantity" class="quantity-label">tp人数</label>
+          <%= f.number_field :tp_quantity, placeholder: "人数", class: 'quantity-form' %>
+          
+          <label for="tp_min_times" class="min-label">最低回数</label>
+          <%= f.number_field :tp_min_times, placeholder: "最低回数", class: 'min-times-form' %>
+          
+          <label for="tp_max_times" class="max-label">最高回数</label>
+          <%= f.number_field :tp_max_times, placeholder: "最高回数", class: 'max-times-form' %>
+        </div>
+
+        <div class='form-content'>
+          <label for="cnt_quantity" class="quantity-label">cnt人数</label>
+          <%= f.number_field :cnt_quantity, placeholder: "人数", class: 'quantity-form' %>
+          
+          <label for="cnt_min_times" class="min-label">最低回数</label>
+          <%= f.number_field :cnt_min_times, placeholder: "最低回数", class: 'min-times-form' %>
+          
+          <label for="cnt_max_times" class="max-label">最高回数</label>
+          <%= f.number_field :cnt_max_times, placeholder: "最高回数", class: 'max-times-form' %>
+        </div>
+
+        <div class='form-content'>
+          <label for="tb_quantity" class="quantity-label">tb人数</label>
+          <%= f.number_field :tb_quantity, placeholder: "人数", class: 'quantity-form' %>
+          
+          <label for="tb_min_times" class="min-label">最低回数</label>
+          <%= f.number_field :tb_min_times, placeholder: "最低回数", class: 'min-times-form' %>
+          
+          <label for="tb_max_times" class="max-label">最高回数</label>
+          <%= f.number_field :tb_max_times, placeholder: "最高回数", class: 'max-times-form' %>
+        </div>
+
+        <div class='form-content'>
+          <label for="tuba_quantity" class="quantity-label">tuba人数</label>
+          <%= f.number_field :tuba_quantity, placeholder: "人数", class: 'quantity-form' %>
+          
+          <label for="tuba_min_times" class="min-label">最低回数</label>
+          <%= f.number_field :tuba_min_times, placeholder: "最低回数", class: 'min-times-form' %>
+          
+          <label for="tuba_max_times" class="max-label">最高回数</label>
+          <%= f.number_field :tuba_max_times, placeholder: "最高回数", class: 'max-times-form' %>
+        </div>
+
+        <div class='form-content'>
+          <label for="perc_quantity" class="quantity-label">perc人数</label>
+          <%= f.number_field :perc_quantity, placeholder: "人数", class: 'quantity-form' %>
+          
+          <label for="perc_min_times" class="min-label">最低回数</label>
+          <%= f.number_field :perc_min_times, placeholder: "最低回数", class: 'min-times-form' %>
+          
+          <label for="perc_max_times" class="max-label">最高回数</label>
+          <%= f.number_field :perc_max_times, placeholder: "最高回数", class: 'max-times-form' %>
+        </div>
+        
+        <div class='search-button'>
+          <%= f.submit "検索", class: 'search-button-content' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class= 'footer'>
+  <div class= 'footer-title'><h1>©ProgramCreator</h1></div>
+</div>

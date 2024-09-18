@@ -1,4 +1,4 @@
-header{
+/* header{
   background-color: #502e2b;
   height: 100px;
   display: flex;
@@ -17,49 +17,7 @@ header{
   padding-bottom: 50px;
 }
 
-.main-piece{
-  display: flex;
-  justify-content: center;
-  
-}
 
-.main-piece-title{
-  font-size: 32px;
-  color: #E9E3DD;
-  margin-top: 80px;
-  padding-left: 15px;
-}
-
-.main-piece-form{
-  width: 800px;
-  height: 150px;
-  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
-  background-color: #E9E3DD;
-  padding: 10px;
-}
-
-.main-piece-conditions{
-  display: flex;
-  justify-content: space-between;
-  margin: 20px;
-}
-
-li{
-  list-style: none;
-  color: #3C0F0A;
-}
-
-.main-piece-pulldown{
-  height: 25px;
-  font-size: 15px;
-}
-
-.main-piece-name{
-  font-size: 24px;
-  color: #3C0F0A;
-  margin-top: 20px;
-  margin-left: 40px;
-}
 
 .search-piece{
   margin-top: 30px;
@@ -117,4 +75,4 @@ li{
 .search-button-text{
   color: #E9E3DD;
   font-size: 24px;
-}
+} */

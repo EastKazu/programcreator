@@ -74,3 +74,7 @@ end
 group :production do
   gem 'pg'
 end
+
+gem 'ransack'
+gem 'pry-rails'
+gem 'active_hash'
