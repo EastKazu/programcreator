@@ -67,6 +67,18 @@
               <%= genre.name %>
             </div>
             <% end %>
+            <label>国</label>
+            <% Country.all.each do |country| %>
+            <div>
+              <%= f.check_box :country_ids, { multiple: true }, country.id, nil %>
+              <%= country.name %>
+            </div>
+            <% end %>
+            <div>
+            <label>作曲年:</label>
+            <%= f.number_field :year_composed_from, placeholder: '開始年' %>
+            <%= f.number_field :year_composed_to, placeholder: '終了年' %>
+            </div>
           <label for="horn_quantity" class="quantity-label">picc人数</label>
           <%= f.number_field :picc_quantity, placeholder: "人数", class: 'quantity-form' %>
           
