@@ -1,11 +1,15 @@
 class PiecesController < ApplicationController
 
-  def index
-    # @pieces = Piece.includes(:instruments, :piece_instruments)
-  end
-
   def search
-    # 楽器情報のハッシュ
+    composer_ids = params[:composer_ids] 
+    
+    if composer_ids.present?
+      @q = Piece.ransack(composer_id_in: composer_ids)
+      @pieces = @q.result
+    else
+      @pieces = Piece.all
+    end
+
     instruments = {
       picc: { quantity: 0, max_times: 0, min_times: 0 },
       fl: { quantity: 0, max_times: 0, min_times: 0 },
@@ -21,10 +25,8 @@ class PiecesController < ApplicationController
       tb: { quantity: 0, max_times: 0, min_times: 0 },
       tuba: { quantity: 0, max_times: 0, min_times: 0 },
       perc: { quantity: 0, max_times: 0, min_times: 0 }
-
     }
 
-    # 各楽器のパラメータを取得
     instruments.each_key do |key|
       instruments[key][:quantity] = params["#{key}_quantity"].present? ? params["#{key}_quantity"].to_i : 0
       instruments[key][:max_times] = params["#{key}_max_times"].present? ? params["#{key}_max_times"].to_i : nil
@@ -46,10 +48,12 @@ class PiecesController < ApplicationController
     tuba_id = 13
     perc_id = 14
 
+    piece_ids = @pieces.pluck(:id)
 
-    # ここで `@pieces` を基本的なクエリで初期化
     @pieces = Piece.joins("JOIN piece_instruments p1_picc ON pieces.id = p1_picc.piece_id")
-                   .joins("JOIN piece_instruments p2_picc ON p1_picc.piece_id < p2_picc.piece_id")
+    .joins("JOIN pieces piece2 ON piece2.id != pieces.id")  # pieces テーブルを2回目に結合して異なる曲を取得
+    .joins("JOIN piece_instruments p2_picc ON piece2.id = p2_picc.piece_id")
+    .where("pieces.id IN (?) AND piece2.id IN (?)", piece_ids, piece_ids)
                    .joins("JOIN piece_instruments p1_fl ON p1_picc.piece_id = p1_fl.piece_id")
                    .joins("JOIN piece_instruments p2_fl ON p2_picc.piece_id = p2_fl.piece_id")
                    .joins("JOIN piece_instruments p1_cl ON p1_picc.piece_id = p1_cl.piece_id")
@@ -92,12 +96,10 @@ class PiecesController < ApplicationController
                    .where("p1_perc.instrument_id = ? AND p2_perc.instrument_id = ?", perc_id, perc_id)
                    .group('p1_picc.piece_id, p2_picc.piece_id')
 
-    # 楽器の条件を適用
     instruments.each do |key, values|
       apply_instrument_conditions(key.to_s, values[:quantity], values[:max_times], values[:min_times])
     end
 
-    # 最終的な select を適用
     @pieces = @pieces.select('p1_picc.piece_id AS piece1_id, p2_picc.piece_id AS piece2_id, 
                             SUM(p1_picc.quantity) + SUM(p2_picc.quantity) AS total_picc_quantity, 
                             SUM(p1_fl.quantity) + SUM(p2_fl.quantity) AS total_fl_quantity,
@@ -122,15 +124,12 @@ class PiecesController < ApplicationController
     max_limit = max_times ? quantity * max_times : nil
     min_limit = quantity * min_times
   
-    # max_timesがnilでなく、0より大きい場合のみmax_limitの条件を適用
     if max_times && max_times > 0
       @pieces = @pieces.having("SUM(p1_#{instrument_code}.quantity) + SUM(p2_#{instrument_code}.quantity) <= ?", max_limit)
     elsif max_times == 0
-      # max_timesが0の場合、該当楽器が使用されていないことを示す
       @pieces = @pieces.having("SUM(p1_#{instrument_code}.quantity) + SUM(p2_#{instrument_code}.quantity) = 0")
     end
   
-    # min_timesはデフォルトで0なので、この条件は常に適用
     if min_times > 0
       @pieces = @pieces.having("SUM(p1_#{instrument_code}.quantity) + SUM(p2_#{instrument_code}.quantity) >= ?", min_limit)
     end

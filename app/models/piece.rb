@@ -13,4 +13,13 @@ class Piece < ApplicationRecord
     validates :year_composed
     validates :country_id
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["piece_name", "composer_id", "genre_id", "year_composed", "country_id"]
+  end
+
+  # Ransackで検索可能な関連付けを定義
+  def self.ransackable_associations(auth_object = nil)
+    ["composer", "genre", "instruments", "piece_instruments"]
+  end
 end

@@ -53,6 +53,13 @@
     <%= form_with url: search_pieces_path, method: :get, local: true do |f| %>
       <div class='search-piece-form'>
         <div class='form-content'>
+            <label>作曲家</label>
+            <% Composer.all.each do |composer| %>
+            <div>
+              <%= f.check_box :composer_ids, { multiple: true }, composer.id, nil %>
+              <%= composer.name %>
+            </div>
+            <% end %>
           <label for="horn_quantity" class="quantity-label">picc人数</label>
           <%= f.number_field :picc_quantity, placeholder: "人数", class: 'quantity-form' %>
           
