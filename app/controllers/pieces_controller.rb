@@ -126,6 +126,7 @@ class PiecesController < ApplicationController
                             SUM(p1_tuba.quantity) + SUM(p2_tuba.quantity) AS total_tuba_quantity,
                             SUM(p1_perc.quantity) + SUM(p2_perc.quantity) AS total_perc_quantity,
                             p1_picc.piece_id AS piece1_name, p2_picc.piece_id AS piece2_name')
+                     .where('p1_picc.piece_id < p2_picc.piece_id') 
   end
 
   private
