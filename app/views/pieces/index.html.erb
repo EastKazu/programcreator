@@ -5,7 +5,7 @@
 <div class='main'>
    <div class= 'main-piece'>
     <div class= 'main-piece-box'>
-      <div class= 'main-piece-title'>メイン曲</div>
+      <div class= 'main-piece-title'>メイン曲から人数算出昨日は近日実装予定</div>
       <div class= 'main-piece-form'>
         <ul class= 'main-piece-conditions'>
           <li class= 'main-piece-condition'>作曲家</li>
@@ -45,6 +45,7 @@
           <option>ベートーヴェン 交響曲3番</option>
         </select>
         </div>
+        <h3>現在こちらのフォームはダミーのため使用できません</h3>
       </div>
     </div>
   </div>
@@ -52,14 +53,17 @@
   <div class='search'>
     <%= form_with url: search_pieces_path, method: :get, local: true do |f| %>
       <div class='search-piece-form'>
-        <div class='form-content'>
+        <div class='search-contents'>
+          <div class='search-composer'>
             <label>作曲家</label>
-            <% Composer.all.each do |composer| %>
-            <div>
-              <%= f.check_box :composer_ids, { multiple: true }, composer.id, nil %>
-              <%= composer.name %>
-            </div>
+            <% Composer.all.sort_by { |composer| composer.name }.each do |composer| %>
+              <div>
+                <%= f.check_box :composer_ids, { multiple: true }, composer.id, nil %>
+                <%= composer.name %>
+              </div>
             <% end %>
+          </div>
+          <div class='search-genre'>
             <label>ジャンル</label>
             <% Genre.all.each do |genre| %>
             <div>
@@ -67,18 +71,25 @@
               <%= genre.name %>
             </div>
             <% end %>
+          </div>
+          <div class='search-country'>
             <label>国</label>
-            <% Country.all.each do |country| %>
-            <div>
-              <%= f.check_box :country_ids, { multiple: true }, country.id, nil %>
-              <%= country.name %>
-            </div>
+            <% Country.all.sort_by { |country| country.name }.each do |country| %>
+              <div>
+                <%= f.check_box :country_ids, { multiple: true }, country.id, nil %>
+                <%= country.name %>
+              </div>
             <% end %>
-            <div>
-            <label>作曲年:</label>
+          </div>
+          <div class='search-year'>
+            <label>作曲年</label>
             <%= f.number_field :year_composed_from, placeholder: '開始年' %>
+            <br>から
             <%= f.number_field :year_composed_to, placeholder: '終了年' %>
-            </div>
+            <br>まで
+          </div>
+        </div>
+        <div class='form-content'>
           <label for="horn_quantity" class="quantity-label">picc人数</label>
           <%= f.number_field :picc_quantity, placeholder: "人数", class: 'quantity-form' %>
           
