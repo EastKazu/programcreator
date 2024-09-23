@@ -1,6 +1,6 @@
 class PiecesController < ApplicationController
 
-  def search
+  def search_results
     composer_ids = params[:composer_ids] 
     genre_ids = params[:genre_ids]
     country_ids = params[:country_ids]
