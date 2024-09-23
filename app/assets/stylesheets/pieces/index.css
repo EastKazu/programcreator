@@ -1,4 +1,4 @@
-.header{
+/* .header{
   background-color: #502e2b;
   height: 100px;
   display: flex;
@@ -19,10 +19,21 @@
 .header-title:hover {
   color: #502e2b;
   background-color: #E9E3DD;
+} */
+
+.search-page-image{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('violin.jpg'); /* ここに画像のパスを指定 */
+    background-size: cover; /* 画像をコンテナにフィットさせつつ、引き延ばさない */
+    background-position: left; /* 画像の中央を基準にトリミング */
+    background-repeat: no-repeat; /* 画像を繰り返さない */
+    position: relative;
+    overflow-y: auto;
 }
 
 .main{
-  background-color: #ac5d49;
+  
   height: 100vx;
   padding-bottom: 50px;
 }
@@ -35,30 +46,19 @@
 
 .main-piece-title{
   font-size: 32px;
-  color: #E9E3DD;
+  color: white;
   margin-top: 80px;
   text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .main-piece-form{
   width: 800px;
   height: 150px;
   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
-  background-color: #E9E3DD;
+  background-color: white;
   padding: 10px;
   border-radius: 5px;
-}
-
-.search-contents{
-  display: flex;
-  justify-content: space-between;
-}
-
-.search-genre,
-.search-composer,
-.search-country{
-  display: block;
-  width: 450px;
 }
 
 .main-piece-conditions{
@@ -86,9 +86,23 @@ li{
 
 .main-form-title{
   font-size: 32px;
-  color: #E9E3DD;
+  color: white;
   padding-top: 80px;
   text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.search-genre,
+.search-composer,
+.search-country,
+.search-year{
+  display: block;
+  width: 200px;
+  padding: 5px;
+}
+
+.year-input{
+  width: 90%;
 }
 
 .search{
@@ -97,21 +111,55 @@ li{
 }
 
 .search-piece-form{
-  width: 800px;
-  background-color: #E9E3DD;
-  box-shadow: 0 10px 25px 0 rgba(27, 8, 8, 0.5);
-  padding: 8px;
-  border-radius: 5px, 5px;
+  width: 90vw;
+  display: flex;
+  justify-content: center;
+}
+
+.side-form{
+  margin-right: 10px;
+  width: 250px;
+}
+
+.search-contents{
+  padding: 0 0 10px 10px;
+}
+
+.search-composer,
+.search-genre,
+.search-country,
+.search-year{
+  background-color: white;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.toggle-content {
+  display: none;
+}
+
+.category-name{
+  font-weight: bold;
+}
+
+.main-form{
+  background-color: white;
+  width: 500px;
+  height: 950px;
+  padding: 5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
 }
 
 .form-content{
-  padding: 5px;
+  padding: 0 5px 8px 5px;
 }
 
 .quantity-label{
   display: inline-block; 
-  width: 100px;
-  padding-left: 100px;
+  padding-left: 5px;
+  font-weight: bold;
 }
 
 .quantity-form, .min-times-form, .max-times-form{
@@ -120,7 +168,7 @@ li{
 
 .search-piece-title{
   font-size: 32px;
-  color: #E9E3DD;
+  color: white;
   padding-left: 15px;
 }
 
@@ -143,17 +191,17 @@ li{
 }
 
 .search-button-content{
-  background-color: #502e2b;
+  background-color: rgb(0, 7, 14);
   height: 40px;
   width: 200px;
-  margin-top: 20px;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #E9E3DD;
+  color: white;
   font-size: 24px;
 }
-
+/* 
 .footer{
   background-color: #502e2b;
   height: 100px;
@@ -166,6 +214,6 @@ li{
 .footer-title{
   color: #E9E3DD;
   font-size: 12px;
-}
+} */
 
 
