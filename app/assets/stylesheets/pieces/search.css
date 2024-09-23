@@ -1,4 +1,4 @@
-.header{
+/* .header{
   background-color: #502e2b;
   height: 100px;
   display: flex;
@@ -9,18 +9,13 @@
 .header-title{
   color: #E9E3DD;
   font-size: 36px;
-}
+} */
 
-.main{
-  background-color: #ac5d49;
-  height: 100vx;
-  padding-bottom: 50px;
-}
 
 .result-title{
-  color: #E9E3DD;
+  color: white;
   font-size: 32px;
-  padding-top: 20px;
+  padding-top: 30px;
   text-align: center;
 }
 
@@ -30,8 +25,7 @@
 }
 
 table{
-  color: #502e2b;
-  background-color: #E9E3DD;
+  color: rgb(0, 7, 14);
   width: 90vw;
   height: 800px;
   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
@@ -41,13 +35,20 @@ table{
 }
 
 .result-box tr{
-  border-bottom: 1px solid #ac5d49;
+  background-color: white;
+  border-bottom: 1px solid rgb(0, 7, 14);
   height: 25px;
+  margin-bottom: 5px;
 }
 
 .result-box th {
   width: 25px;
   text-align: center;
+}
+
+.result-box td {
+  border-right: 1px dotted rgb(0, 7, 14);
+  padding: 10px;
 }
 
 .result-box th:first-child,
@@ -61,7 +62,24 @@ table{
     text-align: center;
   }
 
-.footer{
+  .result-error-box{
+    width: 30vw;
+    height: 50px;
+    text-align: center;
+    margin: auto;
+    margin-top: 30px;
+    font-size: 15px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .result-error-message{
+    color: rgb(0, 7, 14);
+  }
+
+/* .footer{
   background-color: #502e2b;
   height: 100px;
   display: flex;
@@ -73,5 +91,5 @@ table{
 .footer-title{
   color: #E9E3DD;
   font-size: 12px;
-}
+} */
 
