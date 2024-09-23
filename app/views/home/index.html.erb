@@ -4,7 +4,7 @@
     <div class="menu">
       <ul class="menu-lists">
         <li class="menu-list"><%= link_to 'INDEX', "pieces/index", class: "menu-list" %></li>
-        <li class="menu-list"><%= link_to 'SEARCH', pieces_path, class: "menu-list" %></li>
+        <li class="menu-list"><%= link_to 'SEARCH', search_pieces_path, class: "menu-list" %></li>
         <li class="menu-list"><%= link_to 'MYPAGE', "#", class: "menu-list" %></li>
       </ul>
     </div>
@@ -27,7 +27,7 @@
   </div>
 
   <div class='content'>
-    <%= link_to pieces_path do %>
+    <%= link_to search_pieces_path do %>
       <%= image_tag("violin.jpg", class: "search-image") %>
       <div class="text-overlay">SEARCH</div>
     <% end %>
