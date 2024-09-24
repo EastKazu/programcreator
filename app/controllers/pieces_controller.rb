@@ -1,5 +1,8 @@
 class PiecesController < ApplicationController
+  def index
+    @pieces = Piece.includes(piece_instruments: :instrument).all
 
+  end
   def search_results
     composer_ids = params[:composer_ids] 
     genre_ids = params[:genre_ids]
