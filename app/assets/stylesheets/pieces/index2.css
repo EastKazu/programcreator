@@ -8,27 +8,27 @@
   background-color: white;
 }
 
-.piece-name{
+.piece-lists .piece-name{
   width: 20vw;
 }
 
-.piece-composer{
+.piece-lists .piece-composer{
   width: 10vw;
 }
 
-.piece-duration{
+.piece-lists .piece-duration{
   width: 3vw;
 }
 
-.piece-genre{
+.piece-lists .piece-genre{
   width: 6vw;
 }
 
-.piece-year{
+.piece-lists .piece-year{
   width: 5vw;
 }
 
-.piece-country{
+.piece-lists .piece-country{
   width: 7vw;
 }
 
