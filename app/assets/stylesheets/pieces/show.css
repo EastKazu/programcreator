@@ -1,0 +1,72 @@
+
+
+.piece-list{
+  height: 50px;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+.piece-list-box th{
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+
+.piece-contents{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.piece-content{
+  background-color: white;
+  width: 70vw;
+  height: 50vh;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+
+
+.piece-contents .piece-name{
+  font-size: 32px;
+  text-decoration: underline solid black;
+}
+
+.piece-name-text{
+  border-bottom: 1px solid black;
+}
+
+.composer-information{
+  display: flex;
+  justify-content:flex-start;
+  margin-bottom: 10px;
+}
+
+.piece-contents .composer-name{
+  font-size: 15px;
+  
+}
+
+.piece-contents .year-composed{
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.piece-list{
+  box-shadow: none;
+  width: 60vw;
+}
+
+.remarks{
+  margin-top: 20px;
+  
+}
+
+.remarks-box{
+  border: 1px solid black;
+  height: 10vh;
+  width: 50vw;
+  padding: 7px;
+}
+
