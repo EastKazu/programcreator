@@ -15,7 +15,7 @@
 .result-title{
   color: white;
   font-size: 32px;
-  padding-top: 30px;
+  padding-top: 80px;
   text-align: center;
 }
 
@@ -44,6 +44,15 @@ table{
 .result-box th {
   width: 25px;
   text-align: center;
+}
+
+.piece-name-link{
+  text-decoration: none;
+  color: rgb(0, 7, 14);
+}
+
+.piece-name-link:hover{
+  font-weight: 700;
 }
 
 .result-box td {

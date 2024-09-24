@@ -38,8 +38,8 @@
         <tbody>
           <% @pieces.each do |piece| %>
             <tr>
-              <td><%= Piece.find(piece.piece1_id).piece_name %></td>
-              <td><%= Piece.find(piece.piece2_id).piece_name %></td>
+              <td><%= link_to Piece.find(piece.piece1_id).piece_name, piece_path(Piece.find(piece.piece1_id)), class: "piece-name-link" %></td>
+              <td><%= link_to Piece.find(piece.piece2_id).piece_name, piece_path(Piece.find(piece.piece2_id)), class: "piece-name-link" %></td>
               <td><%= piece.total_picc_quantity %></td>
               <td><%= piece.total_fl_quantity %></td>
               <td><%= piece.total_cl_quantity %></td>
