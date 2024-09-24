@@ -1,0 +1,50 @@
+.piece-lists-box{
+  display: flex;
+  justify-content: center;
+  font-size: 1vw;
+}
+
+.piece-lists{
+  background-color: white;
+}
+
+.piece-name{
+  width: 20vw;
+}
+
+.piece-composer{
+  width: 10vw;
+}
+
+.piece-duration{
+  width: 3vw;
+}
+
+.piece-genre{
+  width: 6vw;
+}
+
+.piece-year{
+  width: 5vw;
+}
+
+.piece-country{
+  width: 7vw;
+}
+
+.piece-lists-box td {
+  border-right: 1px dotted rgb(0, 7, 14);
+  padding: 10px;
+}
+
+
+
+.piece-lists-box tr{
+  height: 50px;
+  text-align: center;
+  border-bottom: 1px solid rgb(0, 7, 14);
+}
+
+.piece-lists-box th{
+  text-align: center;
+}

@@ -1,0 +1,76 @@
+<div class="search-page-image" style="background-image: url('<%= asset_path("score.jpg") %>');">
+<div class='header'>
+  <div class='title'><%= link_to 'ProgramCreator', root_path, class: "title" %></div>
+  <div class="menu">
+    <ul class="menu-lists">
+      <li class="menu-list"><%= link_to 'INDEX', "pieces/index", class: "menu-list" %></li>
+      <li class="menu-list"><%= link_to 'SEARCH', search_pieces_path, class: "menu-list" %></li>
+      <li class="menu-list"><%= link_to 'MYPAGE', "#", class: "menu-list" %></li>
+    </ul>
+  </div>
+</div>
+
+<div class='main'>
+  <h1>楽曲一覧</h1>
+
+  <div class='piece-lists-box'>
+    <table class='piece-lists'>
+      <thead>
+        <tr>
+          <th class='piece-name'>曲名</th>
+          <th class='piece-composer'>作曲者</th>
+          <th class='piece-duration'>演奏時間（分）</th>
+          <th class='piece-genre'>ジャンル</th>
+          <th class='piece-year'>作曲年</th>
+          <th class='piece-country'>国</th>
+          <th>picc</th>
+          <th>fl</th>
+          <th>cl</th>
+          <th>ob</th>
+          <th>eh</th>
+          <th>Bcl</th>
+          <th>fg</th>
+          <th>Cfg</th>
+          <th>hr</th>
+          <th>tp</th>
+          <th>cnt</th>
+          <th>tb</th>
+          <th>tuba</th>
+          <th>perc</th>
+          <%# <th>備考</th> %>
+        </tr>
+      </thead>
+      <tbody>
+        <% @pieces.each do |piece| %>
+          <tr>
+            <td><%= piece.piece_name %></td>
+            <td><%= piece.composer.name %></td>
+            <td><%= piece.duration %></td>
+            <td><%= piece.genre.name %></td>
+            <td><%= piece.year_composed %></td>
+            <td><%= piece.country.name %></td>
+            <td><%= piece.piece_instruments.find_by(instrument_id: 1)&.quantity || 0 %></td>
+            <td><%= piece.piece_instruments.find_by(instrument_id: 2)&.quantity || 0 %></td>
+            <td><%= piece.piece_instruments.find_by(instrument_id: 3)&.quantity || 0 %></td>
+            <td><%= piece.piece_instruments.find_by(instrument_id: 4)&.quantity || 0 %></td>
+            <td><%= piece.piece_instruments.find_by(instrument_id: 5)&.quantity || 0 %></td>
+            <td><%= piece.piece_instruments.find_by(instrument_id: 6)&.quantity || 0 %></td>
+            <td><%= piece.piece_instruments.find_by(instrument_id: 7)&.quantity || 0 %></td>
+            <td><%= piece.piece_instruments.find_by(instrument_id: 8)&.quantity || 0 %></td>
+            <td><%= piece.piece_instruments.find_by(instrument_id: 9)&.quantity || 0 %></td>
+            <td><%= piece.piece_instruments.find_by(instrument_id: 10)&.quantity || 0 %></td>
+            <td><%= piece.piece_instruments.find_by(instrument_id: 11)&.quantity || 0 %></td>
+            <td><%= piece.piece_instruments.find_by(instrument_id: 12)&.quantity || 0 %></td>
+            <td><%= piece.piece_instruments.find_by(instrument_id: 13)&.quantity || 0 %></td>
+            <td><%= piece.piece_instruments.find_by(instrument_id: 14)&.quantity || 0 %></td>
+  
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class= 'footer'>
+  <div class= 'footer-title'><h1>©ProgramCreator</h1></div>
+</div>
