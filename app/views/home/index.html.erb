@@ -1,14 +1,5 @@
 <div class="home-image" style="background-image: url('<%= asset_path("home.jpg") %>');">
-  <div class='header'>
-    <div class='title'><%= link_to 'ProgramCreator', root_path, class: "title" %></div>
-    <div class="menu">
-      <ul class="menu-lists">
-        <li class="menu-list"><%= link_to 'INDEX', pieces_path, class: "menu-list" %></li>
-        <li class="menu-list"><%= link_to 'SEARCH', search_pieces_path, class: "menu-list" %></li>
-        <li class="menu-list"><%= link_to 'MYPAGE', "#", class: "menu-list" %></li>
-      </ul>
-    </div>
-  </div>
+  <%= render "shared/header"%>
   
   <div class='home-main'>
     <div class='catch-copy'>

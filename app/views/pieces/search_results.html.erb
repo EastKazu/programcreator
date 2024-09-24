@@ -1,14 +1,6 @@
 <div class="search-page-image" style="background-image: url('<%= asset_path("violin.jpg") %>');">
-  <div class='header'>
-    <div class='title'><%= link_to 'ProgramCreator', root_path, class: "title" %></div>
-    <div class="menu">
-      <ul class="menu-lists">
-        <li class="menu-list"><%= link_to 'INDEX', "pieces", class: "menu-list" %></li>
-        <li class="menu-list"><%= link_to 'SEARCH', pieces_path, class: "menu-list" %></li>
-        <li class="menu-list"><%= link_to 'MYPAGE', "#", class: "menu-list" %></li>
-      </ul>
-    </div>
-  </div>
+  <%= render "shared/header"%>
+  
   <div class='main'>
     <h2 class='result-title'>検索結果</h2>
     
