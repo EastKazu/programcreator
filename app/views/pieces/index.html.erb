@@ -1,17 +1,8 @@
 <div class="search-page-image" style="background-image: url('<%= asset_path("score.jpg") %>');">
-<div class='header'>
-  <div class='title'><%= link_to 'ProgramCreator', root_path, class: "title" %></div>
-  <div class="menu">
-    <ul class="menu-lists">
-      <li class="menu-list"><%= link_to 'INDEX', "pieces/index", class: "menu-list" %></li>
-      <li class="menu-list"><%= link_to 'SEARCH', search_pieces_path, class: "menu-list" %></li>
-      <li class="menu-list"><%= link_to 'MYPAGE', "#", class: "menu-list" %></li>
-    </ul>
-  </div>
-</div>
+ <%= render "shared/header"%>
 
-<div class='main'>
-  <h1>楽曲一覧</h1>
+  <div class='main'>
+    <h1>楽曲一覧</h1>
 
   <div class='piece-lists-box'>
     <table class='piece-lists'>
@@ -71,6 +62,4 @@
   </div>
 </div>
 
-<div class= 'footer'>
-  <div class= 'footer-title'><h1>©ProgramCreator</h1></div>
-</div>
+<%= render "shared/footer"%>
