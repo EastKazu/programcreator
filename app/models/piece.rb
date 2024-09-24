@@ -5,6 +5,7 @@ class Piece < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :composer
   belongs_to :genre
+  belongs_to :country
 
   with_options presence: true do
     validates :piece_name
