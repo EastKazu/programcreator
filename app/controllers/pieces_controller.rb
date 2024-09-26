@@ -137,19 +137,18 @@ class PiecesController < ApplicationController
 
   private
 
-  def apply_instrument_conditions(instrument_code, quantity, max_times, min_times)
-    max_limit = max_times ? quantity * max_times : nil
-    min_limit = quantity * min_times
   
-    if max_times && max_times > 0
-      @pieces = @pieces.having("SUM(p1_#{instrument_code}.quantity) + SUM(p2_#{instrument_code}.quantity) <= ?", max_limit)
-    elsif max_times == 0
-      @pieces = @pieces.having("SUM(p1_#{instrument_code}.quantity) + SUM(p2_#{instrument_code}.quantity) = 0")
-    end
-  
-    if min_times > 0
-      @pieces = @pieces.having("SUM(p1_#{instrument_code}.quantity) + SUM(p2_#{instrument_code}.quantity) >= ?", min_limit)
-    end
+def apply_instrument_conditions(instrument_code, quantity, max_times, min_times)
+
+  if quantity > 0
+    @pieces = @pieces.having("SUM(p1_#{instrument_code}.quantity) <= ? AND SUM(p2_#{instrument_code}.quantity) <= ?", quantity, quantity)
   end
+
+  min_limit = min_times.present? && min_times > 0 ? quantity * min_times : quantity
+
+  if min_limit > 0
+    @pieces = @pieces.having("SUM(p1_#{instrument_code}.quantity) + SUM(p2_#{instrument_code}.quantity) >= ?", min_limit)
+  end
+end
 end
 
